@@ -11,7 +11,18 @@ cv2.imshow('color image',img_c)
 cv2.imshow('grayscale image',img_g)
 cv2.imshow('unchanged image',img_uc)
 
-#Wait any key pressed
-cv2.waitKey(0)
-#Close all windows
-cv2.destroyAllWindows()
+#Wait any key pressed and save that key
+key = cv2.waitKey(0)
+
+#if esc
+if key == 27 :
+    #Close all windows
+    cv2.destroyAllWindows()
+#if s
+elif key == ord('s') :
+    #Save image
+    cv2.imwrite('outputs/sky_color.jpg',img_c)
+    cv2.imwrite('outputs/sky_gray.jpg',img_g)
+    cv2.imwrite('outputs/sky_unchange.jpg',img_uc)
+    #Close all windows
+    cv2.destroyAllWindows()
